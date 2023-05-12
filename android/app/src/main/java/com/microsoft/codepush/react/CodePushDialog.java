@@ -27,7 +27,7 @@ public class CodePushDialog extends ReactContextBaseJavaModule{
                 @Override
                 public void onHostResume() {
                     Activity currentActivity = getCurrentActivity();
-                    if (currentActivity != null) {
+                    if ((currentActivity != null) && !currentActivity.isFinishing()) {
                         getReactApplicationContext().removeLifecycleEventListener(this);
                         showDialogInternal(title, message, button1Text, button2Text, successCallback, currentActivity);
                     }
